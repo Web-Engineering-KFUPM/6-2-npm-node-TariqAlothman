@@ -213,3 +213,41 @@ After completing all TODOs, test your calculator:
 
 */
 
+import { add, subtract, multiply, divide } from "./utils/operation.js";
+import { parseNumbers, isValidOperation } from "./utils/parser.js";
+import _ from "lodash";
+
+const operation = process.argv[2];
+const numbers = process.argv.slice(3);
+
+if (!isValidOperation(operation)) {
+  console.log("Invalid operation. Use: add, subtract, multiply, or divide");
+} else {
+  const nums = parseNumbers(numbers);
+
+  if (_.isEmpty(nums) || nums.length !== numbers.length) {
+    console.log("Please provide valid numbers for the calculation.");
+  } else {
+    let result;
+
+    switch (operation) {
+      case "add":
+        result = add(nums);
+        break;
+      case "subtract":
+        result = subtract(nums);
+        break;
+      case "multiply":
+        result = multiply(nums);
+        break;
+      case "divide":
+        result = divide(nums);
+        break;
+      default:
+        result = null;
+    }
+
+    console.log(`Result: ${result}`);
+  }
+}
+
