@@ -1,12 +1,8 @@
 import _ from "lodash";
 
 export function parseNumbers(input) {
-  const wrappedNumbers = _.map(input, (str) => {
-    const num = Number(str);
-    return Number.isNaN(num) ? null : { value: num };
-  });
-
-  return _.map(_.compact(wrappedNumbers), "value");
+  const numbers = _.map(input, (str) => Number(str));
+  return _.compact(numbers);
 }
 
 export function isValidOperation(operation) {

@@ -1,7 +1,7 @@
 export function add(numbers) {
   return numbers.reduce((sum, num) => sum + num, 0);
 }
-
+// test
 export function subtract(numbers) {
   if (numbers.length === 0) {
     return 0;
@@ -12,6 +12,7 @@ export function subtract(numbers) {
 
 export function multiply(numbers) {
   return numbers.reduce((product, num) => product * num, 1);
+
 }
 
 export function divide(numbers) {
@@ -23,7 +24,6 @@ export function divide(numbers) {
     if (num === 0) {
       return NaN;
     }
-
     return result / num;
   }, numbers[0]);
 }
